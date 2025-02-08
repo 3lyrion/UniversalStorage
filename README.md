@@ -13,12 +13,15 @@ UniversalStorage storage;
 **Adding / creating elements**
 ```cpp
 storage.add("my_id", int(10));
-auto& str = storage.emplace<std::string>("test", "my_example");
+auto& str = storage.emplace<std::string>("str1", "my_value");
 ```
 
 **Getting elements**
 ```cpp
 auto ptr = storage.get<int>("my_id");
+// ...
+if (auto str_ptr = storage.get<std::string>("str1"))
+  // ...
 ```
 
 **Removing elements / clearing**
@@ -31,7 +34,7 @@ storage.clear();
 
 This project is under MIT License.
 
-Copyright (c) 2024 3lyrion
+Copyright (c) 2025 3lyrion
 
 > Permission is hereby granted, free of charge, to any person obtaining a copy  
 > of this software and associated documentation files (the "Software"), to deal  
