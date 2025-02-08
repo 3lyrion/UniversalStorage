@@ -2,7 +2,7 @@
 
 ## Description
 
-• UniversalStorage container can simultaneously contain any number of elements of any type.
+- The UniversalStorage container can simultaneously store any type of items. Each element has a string identifier, which is set by the user.
 
 ## Example
 
