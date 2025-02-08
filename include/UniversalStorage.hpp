@@ -1,4 +1,4 @@
-﻿/*
+/*
 
 ██╗░░░██╗███╗░░██╗██╗██╗░░░██╗███████╗██████╗░░██████╗░█████╗░██╗░░░░░
 ██║░░░██║████╗░██║██║██║░░░██║██╔════╝██╔══██╗██╔════╝██╔══██╗██║░░░░░
@@ -45,6 +45,9 @@ SOFTWARE.
 #include <unordered_map>
 #include <utility>
 
+namespace el
+{
+
 namespace internal
 {
 
@@ -86,6 +89,12 @@ public:
 	{
 		m_elements.emplace(name, std::make_unique<internal::ValueHolder<T> >(element));
 	}
+
+	template <typename T>
+	constexpr void add(std::string const& name, T&& element)
+	{
+		m_elements.emplace(name, std::make_unique<internal::ValueHolder<T> >(std::move(element)));
+	}
 	
 	template <typename T>
 	constexpr T& emplace(std::string const& name, auto&&... args)
@@ -125,3 +134,5 @@ private:
 
 	std::unordered_map<std::string, Element> m_elements;
 };
+
+} // namespace el
