@@ -16,7 +16,7 @@
 Header-only C++20 simple and fast universal container https://github.com/3lyrion/UniversalStorage
 
 Licensed under the MIT License <http://opensource.org/licenses/MIT>.
-Copyright (c) 2024 3lyrion
+Copyright (c) 2025 3lyrion
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files( the "Software" ), to deal
@@ -47,6 +47,7 @@ SOFTWARE.
 
 namespace internal
 {
+
 	class BaseValueHolder
 	{
 	public:
@@ -100,7 +101,6 @@ public:
 	inline void remove(std::string const& name)
 	{
 		auto entry = m_elements.find(name);
-
 		if (entry != m_elements.end())
 			m_elements.erase(entry);
 	}
@@ -114,7 +114,6 @@ public:
 	constexpr T* get(std::string const& name) const
 	{
 		auto entry = m_elements.find(name);
-
 		if (entry != m_elements.end())
 			return static_cast<internal::ValueHolder<T>*>(entry->second.get())->getValue();
 
